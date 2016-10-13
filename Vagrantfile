@@ -9,10 +9,10 @@ Vagrant.configure("2") do |config|
 
   config.vm.network :forwarded_port, guest: 5985, host: 5985, id: "winrm", auto_correct: true
 
-  config.vm.synced_folder ".", "C:/vagrant", type: "smb"
   config.vm.provision "shell", privileged: true, path: "Install-PreRequisites.ps1"
 
-  config.vm.provider :hyperv do |h|
+  config.vm.provider :hyperv do |h, override|
+    override.vm.synced_folder ".", "C:/vagrant", type: "smb"
     h.memory = 1024
     h.ip_address_timeout = 300
     h.differencing_disk = true
