@@ -50,6 +50,16 @@ Start-Process $openSSLInstaller /verysilent -Wait
 
 npm install --global truffle
 
+# Install Ethereum testrpc
+
+npm install --global ethereumjs-testrpc
+
+# Install VS Code
+
+$codeInstaller = "VSCodeSetup-stable.exe"
+Invoke-WebRequest -UseBasicParsing -Uri "https://vscode-update.azurewebsites.net/latest/win32/stable" -OutFile $codeInstaller
+Start-Process $codeInstaller "/verysilent /suppressmsgboxes /mergetasks=!runcode"
+
 # The End
 
 Write-Output "All done!"
