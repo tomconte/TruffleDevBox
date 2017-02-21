@@ -42,7 +42,7 @@ npm install --global npm@latest
 # Install OpenSSL libraries -- required by secp256k1
 # We need the older 1.0.2 version that includes libeay32.lib
 
-$openSSLInstaller = "Win64OpenSSL-1_0_2j.exe"
+$openSSLInstaller = "Win64OpenSSL-1_0_2k.exe"
 Invoke-WebRequest -UseBasicParsing -Uri "https://slproweb.com/download/$openSSLInstaller" -OutFile $openSSLInstaller
 Start-Process $openSSLInstaller /verysilent -Wait
 
