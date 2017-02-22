@@ -58,7 +58,7 @@ npm install --global ethereumjs-testrpc
 
 $codeInstaller = "VSCodeSetup-stable.exe"
 Invoke-WebRequest -UseBasicParsing -Uri "https://vscode-update.azurewebsites.net/latest/win32/stable" -OutFile $codeInstaller
-Start-Process $codeInstaller "/verysilent /suppressmsgboxes /mergetasks=!runcode"
+Start-Process $codeInstaller "/verysilent /suppressmsgboxes /mergetasks=!runcode" -Wait
 
 # The End
 
