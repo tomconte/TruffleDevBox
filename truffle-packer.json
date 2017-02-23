@@ -35,6 +35,10 @@
         {
             "type": "powershell",
             "script": "Install-Truffle.ps1"
+        },
+        {
+            "type": "windows-shell",
+            "inline": ["%WINDIR%\\System32\\Sysprep\\sysprep.exe /generalize /oobe /shutdown"]
         }
     ]
 }
