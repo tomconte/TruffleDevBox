@@ -1,20 +1,16 @@
-# Install all pre-requisites for Ethereum Truffle
-# Once complete, just open a new terminal window and run:
-# npm install -g truffle
-# If you want TestRPC:
-# npm install -g testrpc
+# Install Ethereum Truffle and TestRPC
 
 # N.B.: must be run as Administrator
 # Also need to make sure the execution policy allows running scripts that aren't code-signed
 # Set-ExecutionPolicy Unrestricted -Scope CurrentUser
+
+Set-Location $env:TEMP
 
 ###
 ### STEP 1: install generic tools, e.g. Node.JS and Git
 ###
 
 # Download & install Node.JS
-
-Set-Location $env:TEMP
 
 $nodeVersion = "v6.7.0"
 $nodeInstaller = "node-v6.7.0-x64.msi"
@@ -53,7 +49,6 @@ npm install --global windows-build-tools
 # Update to very latest version of npm
 
 npm install --global npm@latest
-
 
 ###
 ### STEP 3: actually install the tools we are interested in, i.e. Truffle and TestRPC
