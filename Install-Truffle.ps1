@@ -29,6 +29,13 @@ Start-Process $gitInstaller /silent -Wait
 
 $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User") 
 
+# Install OpenSSL libraries -- required by secp256k1
+# We need the older 1.0.2 version that includes libeay32.lib
+
+$openSSLInstaller = "Win64OpenSSL-1_0_2k.exe"
+Invoke-WebRequest -UseBasicParsing -Uri "https://slproweb.com/download/$openSSLInstaller" -OutFile $openSSLInstaller
+Start-Process $openSSLInstaller /verysilent -Wait
+
 # Install Windows Build Tools
 # https://github.com/felixrieseberg/windows-build-tools
 # This will take a LONG time but takes care of all node-gyp pre-requisites
@@ -38,13 +45,6 @@ npm install --global windows-build-tools
 # Update to very latest version of npm
 
 npm install --global npm@latest
-
-# Install OpenSSL libraries -- required by secp256k1
-# We need the older 1.0.2 version that includes libeay32.lib
-
-$openSSLInstaller = "Win64OpenSSL-1_0_2k.exe"
-Invoke-WebRequest -UseBasicParsing -Uri "https://slproweb.com/download/$openSSLInstaller" -OutFile $openSSLInstaller
-Start-Process $openSSLInstaller /verysilent -Wait
 
 # Now we can finally install Truffle
 
