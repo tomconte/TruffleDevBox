@@ -12,8 +12,8 @@ Set-Location $env:TEMP
 
 # Download & install Node.JS
 
-$nodeVersion = "v6.7.0"
-$nodeInstaller = "node-v6.7.0-x64.msi"
+$nodeVersion = "v6.10.0"
+$nodeInstaller = "node-v6.10.0-x64.msi"
 
 Invoke-WebRequest -UseBasicParsing -Uri "https://nodejs.org/dist/$nodeVersion/$nodeInstaller" -OutFile $nodeInstaller
 
